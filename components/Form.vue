@@ -21,19 +21,19 @@
   </v-row>
 </template>
 
+
 <script>
 export default {
   data() {
     return {
-      todos: [],
       title: ""
     }
   },
   methods: {
-    addTodo: function(e) {
-      this.$store.commit('todos/addTodo',e.target.value),
+    addTodo: function() {
+      this.$store.commit('todos/addTodo', this.title),
       this.title = ''
     }
-  }
+  },
 }
 </script>
