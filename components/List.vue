@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="todo in todos" v-bind:key="todo.id">
+      <tr v-for="(todo, index) in todos" v-bind:key="todo.id">
         <td>{{ todo.id }}</td>
         <td>{{ todo.title }}</td>
         <td>{{ todo.deadline }}</td>
@@ -28,10 +28,18 @@ import {mapState} from 'vuex';
 export default {
   data() {
     return {
-      title: ""
+      title: "",
     }
   },
-  computed:
-    mapState(['todos'])
+  computed: {
+    todos: {
+      get() {
+        return this.todos=this.$store.state.todos
+      },
+      set(title) {
+        this.title = title
+      }
+    },
+  }
 }
 </script>

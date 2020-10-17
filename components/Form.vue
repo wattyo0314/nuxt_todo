@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     addTodo: function() {
-      this.$store.commit('todos/addTodo', this.title),
+      this.$store.commit('todos/addTodo', {title: this.title}),
       this.title = ''
     }
   },
